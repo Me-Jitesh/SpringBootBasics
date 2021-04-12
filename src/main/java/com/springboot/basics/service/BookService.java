@@ -30,8 +30,12 @@ public class BookService {
     //    Get Book By ID
     public Book getBookById(int id) {
         Book book = null;
-        //        We Can Perform Filter Here By Many Ways like for each loop , stream.filter , stream.map function etc
-        book = list.stream().filter(e -> e.getId() == id).findFirst().get();
+        try {
+            //        We Can Perform Filter Here By Many Ways like for each loop , stream.filter , stream.map function etc
+            book = list.stream().filter(e -> e.getId() == id).findFirst().get();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return book;
     }
 
