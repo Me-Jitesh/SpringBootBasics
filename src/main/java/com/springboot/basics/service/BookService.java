@@ -30,6 +30,7 @@ public class BookService {
     //    Get Book By ID
     public Book getBookById(int id) {
         Book book = null;
+        //        We Can Perform Filter Here By Many Ways like for each loop , stream.filter , stream.map function etc
         book = list.stream().filter(e -> e.getId() == id).findFirst().get();
         return book;
     }
@@ -42,6 +43,19 @@ public class BookService {
 
     //    Delete Book
     public void deleteBook(int bId) {
+        //        We Can Perform Filter Here By Many Ways like for each loop , stream class ,map function etc
         list = list.stream().filter(book -> book.getId() != bId).collect(Collectors.toList());
+    }
+
+    //      Update Book
+    public void updateBook(Book book, int bId) {
+        //        We Can Perform Filter Here By Many Ways like for each loop , stream.filter function , map function etc
+        list = list.stream().map(b -> {
+            if (b.getId() == bId) {
+                b.setTitle(book.getTitle());
+                b.setAuthor(book.getAuthor());
+            }
+            return b;
+        }).collect(Collectors.toList());
     }
 }

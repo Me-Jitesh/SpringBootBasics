@@ -38,4 +38,10 @@ public class BookController {
         bookService.deleteBook(id);
         System.out.println("Deleting Completed");
     }
+
+    @PutMapping("/books/{id}")
+    public Book updateBook(@RequestBody Book book, @PathVariable("id") int bId) {
+        this.bookService.updateBook(book, bId);
+        return book;
+    }
 }
