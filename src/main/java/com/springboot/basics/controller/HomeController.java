@@ -1,4 +1,4 @@
-package com.springboot.basics;
+package com.springboot.basics.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
