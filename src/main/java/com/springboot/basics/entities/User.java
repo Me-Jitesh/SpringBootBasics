@@ -24,6 +24,12 @@ public class User {
         this.status = status;
     }
 
+    public User(String name, String city, String status) {
+        this.name = name;
+        this.city = city;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
