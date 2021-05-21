@@ -18,10 +18,14 @@ public class SpringBootBasicsApplication {
 
         UserRepository userRepository = context.getBean(UserRepository.class);
 
+        System.out.println("*******************************************************Custom Query***************************************************************");
+
+        customQuery(userRepository);
+
         System.out.println("*******************************************************Custom Finder***************************************************************");
 
         /*      Custom Finder       */
-        customFinder(userRepository);
+//        customFinder(userRepository);
 
         System.out.println("*******************************************************CRUD OPERATION***************************************************************");
 
@@ -39,15 +43,35 @@ public class SpringBootBasicsApplication {
 
     }
 
+    private static void customQuery(UserRepository repository) {
+        System.out.println("*******************************************************getAllUsers***************************************************************");
+
+        List<User> allUsers = repository.getAllUsers();
+        allUsers.forEach(user -> System.out.println(user));
+
+        System.out.println("**********************************************************getUserByName************************************************************");
+
+        List<User> u = repository.getUserByName("Jitu Thakur");
+        u.forEach(user -> System.out.println(u));
+
+        System.out.println("**********************************************************getUserByNameAndCity************************************************************");
+
+        List<User> nameAndCity = repository.getUserByNameAndCity("Utkarsh Tiwari", "Manendragarh");
+        nameAndCity.forEach(user -> System.out.println(user));
+
+        System.out.println("*******************************************************Native Query**************************************************************");
+
+        repository.getUsers().forEach(user -> System.out.println(user));
+    }
+
     private static void customFinder(UserRepository repository) {
         System.out.println("*******************************************************findByName***************************************************************");
         List<User> users = repository.findByName("Jitu Thakur");
         users.forEach(user -> System.out.println(user));
 
         System.out.println("*******************************************************findByNameAndCity**************************************************************");
-        List<User> hola = repository.findByNameAndCity("Durga Shankar","Korba");
+        List<User> hola = repository.findByNameAndCity("Durga Shankar", "Korba");
         hola.forEach(user -> System.out.println(user));
-
     }
 
     private static void createOperation(UserRepository repository) {
