@@ -18,17 +18,35 @@ public class SpringBootBasicsApplication {
 
         UserRepository userRepository = context.getBean(UserRepository.class);
 
+        System.out.println("*******************************************************Custom Finder***************************************************************");
+
+        /*      Custom Finder       */
+        customFinder(userRepository);
+
+        System.out.println("*******************************************************CRUD OPERATION***************************************************************");
+
         /*      Create Operation            */
-        createOperation(userRepository);
+//        createOperation(userRepository);
 
         /*      Read Operation    */
-        readOperation(userRepository);
+//        readOperation(userRepository);
 
         /*      Update Operation    */
-        updateOperation(userRepository);
+//        updateOperation(userRepository);
 
         /*      Delete Operation    */
-        deleteOperation(userRepository);
+//        deleteOperation(userRepository);
+
+    }
+
+    private static void customFinder(UserRepository repository) {
+        System.out.println("*******************************************************findByName***************************************************************");
+        List<User> users = repository.findByName("Jitu Thakur");
+        users.forEach(user -> System.out.println(user));
+
+        System.out.println("*******************************************************findByNameAndCity**************************************************************");
+        List<User> hola = repository.findByNameAndCity("Durga Shankar","Korba");
+        hola.forEach(user -> System.out.println(user));
 
     }
 
