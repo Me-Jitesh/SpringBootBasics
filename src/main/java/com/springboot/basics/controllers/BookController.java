@@ -32,4 +32,10 @@ public class BookController {
         Book b = this.bookService.addBook(book);
         return b;
     }
+
+    @DeleteMapping("/books/{id}")
+    public void delBook(@PathVariable("id") int id) {
+        bookService.deleteBook(id);
+        System.out.println("Deleting Completed");
+    }
 }

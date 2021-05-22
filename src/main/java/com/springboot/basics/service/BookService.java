@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //      This Fake Service , In Real App Must add Data From  Database
 @Component
@@ -37,5 +38,10 @@ public class BookService {
     public Book addBook(Book book) {
         list.add(book);
         return book;
+    }
+
+    //    Delete Book
+    public void deleteBook(int bId) {
+        list = list.stream().filter(book -> book.getId() != bId).collect(Collectors.toList());
     }
 }
