@@ -14,12 +14,12 @@ public class BookService {
     private static List<Book> list = new ArrayList<>();
 
     static {
-        list.add(new Book(1, "DoDo", "Dodo"));
-        list.add(new Book(2, "HoBo", "hobo"));
-        list.add(new Book(3, "GoGo", "Gogo"));
-        list.add(new Book(4, "Jholo", "jholo"));
-        list.add(new Book(5, "Hola", "hola"));
-        list.add(new Book(6, "DoJo", "Dojo"));
+//        list.add(new Book(1, "DoDo", "Dodo"));
+//        list.add(new Book(2, "HoBo", "hobo"));
+//        list.add(new Book(3, "GoGo", "Gogo"));
+//        list.add(new Book(4, "Jholo", "jholo"));
+//        list.add(new Book(5, "Hola", "hola"));
+//        list.add(new Book(6, "DoJo", "Dojo"));
     }
 
     //    Get All Books

@@ -12,14 +12,23 @@ public class Book {
     private int id;
     private String title;
     private String author;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Publisher publisher;
 
     public Book() {
     }
 
-    public Book(int id, String title, String author) {
+//    public Book(int id, String title, String author) {
+//        this.id = id;
+//        this.title = title;
+//        this.author = author;
+//    }
+
+    public Book(int id, String title, String author, Publisher publisher) {
         this.id = id;
         this.title = title;
         this.author = author;
+        this.publisher = publisher;
     }
 
     public int getId() {
@@ -46,12 +55,21 @@ public class Book {
         this.author = author;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
+                ", publisher=" + publisher +
                 '}';
     }
 }
