@@ -1,7 +1,7 @@
 package com.springboot.basics.controllers;
 
 import com.springboot.basics.entities.Book;
-import com.springboot.basics.service.BookService;
+import com.springboot.basics.service.BookServiceForDb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BookController {
 
     @Autowired
-    private BookService bookService;
+    private BookServiceForDb bookService;
 
     //    @RequestMapping(value = "/books", method = RequestMethod.GET) // Below Annotation  Is Shortcut
     @GetMapping("/books")
@@ -57,7 +57,7 @@ public class BookController {
         if (list.size() == 0) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.of(Optional.of(list));
+        return ResponseEntity.status(HttpStatus.CREATED).body(list);
     }
 
     @GetMapping("/respBook/{id}")
