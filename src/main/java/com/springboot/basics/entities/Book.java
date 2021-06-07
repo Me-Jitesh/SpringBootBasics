@@ -1,5 +1,7 @@
 package com.springboot.basics.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Book {
     private String title;
     private String author;
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Publisher publisher;
 
     public Book() {

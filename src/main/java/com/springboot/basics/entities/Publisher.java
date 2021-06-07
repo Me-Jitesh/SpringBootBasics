@@ -1,5 +1,7 @@
 package com.springboot.basics.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Publisher {
     @Column(name = "last_name")
     private String lastName;
     @OneToOne(mappedBy = "publisher")       //  mappedBy for preventing Extra Column
+    @JsonBackReference
     private Book book;
 
     public Publisher() {
