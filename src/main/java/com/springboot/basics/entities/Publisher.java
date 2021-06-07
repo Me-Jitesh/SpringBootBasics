@@ -12,6 +12,8 @@ public class Publisher {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @OneToOne(mappedBy = "publisher")       //  mappedBy for preventing Extra Column
+    private Book book;
 
     public Publisher() {
     }
@@ -44,5 +46,13 @@ public class Publisher {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

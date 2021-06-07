@@ -18,11 +18,11 @@ public class Book {
     public Book() {
     }
 
-//    public Book(int id, String title, String author) {
-//        this.id = id;
-//        this.title = title;
-//        this.author = author;
-//    }
+    public Book(int id, String title, String author) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+    }
 
     public Book(int id, String title, String author, Publisher publisher) {
         this.id = id;
