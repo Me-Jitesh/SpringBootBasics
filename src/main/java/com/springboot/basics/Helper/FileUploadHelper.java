@@ -1,5 +1,6 @@
 package com.springboot.basics.Helper;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,8 +14,14 @@ import java.nio.file.StandardCopyOption;
 
 @Component
 public class FileUploadHelper {
-    public final String UPLOAD_DIR = "/home/isus/Workspace/Intellij Idea Projects/SpringBootBasics/src/main/resources/static/images";
+//    public final String UPLOAD_DIR = "/home/isus/Workspace/Intellij Idea Projects/SpringBootBasics/src/main/resources/static/images";
+
+    //    Making Dynamic Path
+    public final String UPLOAD_DIR = new ClassPathResource("static/images/").getFile().getAbsolutePath();
     boolean f = false;
+
+    public FileUploadHelper() throws IOException {
+    }
 
     public boolean uploadFile(MultipartFile multipartFile) {
 

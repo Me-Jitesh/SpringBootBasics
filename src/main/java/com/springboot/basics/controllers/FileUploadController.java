@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 public class FileUploadController {
@@ -35,7 +36,8 @@ public class FileUploadController {
         boolean f = fileUploadHelper.uploadFile(file);
         if (f) {
             System.out.println("Upload Success");
-            return ResponseEntity.ok("Upload Success");
+//            return ResponseEntity.ok("Upload Success");
+            return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(file.getOriginalFilename()).toUriString());
         } else {
             System.out.println("Poapat Ho Gaya");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Poapat Ho Gaya");
