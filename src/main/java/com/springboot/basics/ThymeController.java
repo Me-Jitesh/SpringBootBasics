@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class ThymeController {
@@ -15,6 +16,11 @@ public class ThymeController {
         model.addAttribute("name", "Jitu");
         model.addAttribute("last", "Thakur");
         model.addAttribute("date", new Date().toLocaleString());
+
+//        Create Iterable
+        List<String> me = List.of("Jeetu", "Jitu", "Jitesh", "Jeetesh");
+
+        model.addAttribute("me", me);
         return "thymee";
     }
 }

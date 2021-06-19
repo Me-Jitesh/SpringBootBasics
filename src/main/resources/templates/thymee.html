@@ -35,7 +35,31 @@
 
 </div>
 
-<h4>Accessing Name Local Outside : <span th:text="${n}"> </span></h4>
+<!--<h4>Accessing Name Local Outside : <span th:text="${n}"> </span></h4>-->
+
+<!--        Iteration In Thymeleaf          -->
+
+<!--
+status -
+index : the current iteration index ,starting with 0
+count : the number of elements processed so far
+size : the total number of elements in the list
+even/odd : checks if the current iteration index is even or odd
+first : check if the current iteration is the first one
+last : checks if the current iteration is the last one
+-->
+
+<div align="center">
+
+    <h1> Iteration In Thymeleaf </h1>
+
+    <ul>
+        <li th:each="n ,status : ${me}">
+            <h5 th:style=" ${status.odd} ? 'font-style:italic ' : ' font-size:20px; color: white; ' "
+                th:text="${status.index } + ${n}"></h5>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
