@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Me Thymee</title>
+</head>
+<body bgcolor="#ff7f50">
+
+<div align="center">
+    <h1 th:text="${welcome}"></h1>
+
+    <h3>My Name Is : <span th:text="${name}"></span></h3>
+
+    <h3>Last Name Is : <span th:text="${#strings.toUpperCase(last)}"></span></h3>
+
+    <h3>Length Of Name : <span th:text="${#strings.length(name)}"></span></h3>
+
+    <h3>Time & Date Is : <span th:text="${date}"></span></h3>
+</div>
+
+<!--        Declaring Local Variable In Thymeleaf       -->
+
+
+<div th:with="a=10 , b=20 , n=${name}" align="center">
+
+    <h1> Declaring Local Variable In Thymeleaf </h1>
+
+    <h4>My Name In Local <span th:text="${n}"> </span></h4>
+
+    <h4 th:text="${'Value Of a = ' + a}"></h4>
+
+    <h4 th:text=" 'Value Of b = ' + ${b} "></h4>
+
+    <h4 th:text=" 'Sum Of a = ' + ${a} + ' and b = ' + ${b} + ' is : ' + ${ a+b} "></h4>
+
+</div>
+
+<h4>Accessing Name Local Outside : <span th:text="${n}"> </span></h4>
+
+</body>
+</html>

@@ -1,17 +1,20 @@
 package com.springboot.basics;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 @Controller
 public class ThymeController {
 
     @RequestMapping("/thymee")
-    @ResponseBody
-    public String thymee(){
-
-        System.out.println("Me Thymee");
-        return "me-thymee";
+    public String thymee(Model model) {
+        model.addAttribute("welcome", "Hola Thymee");
+        model.addAttribute("name", "Jitu");
+        model.addAttribute("last", "Thakur");
+        model.addAttribute("date", new Date().toLocaleString());
+        return "thymee";
     }
 }
